@@ -11,7 +11,7 @@ export default class ListCard extends Component{
     }
 
     async componentDidMount() {
-        fetch('http://localhost:8080/api/cards')
+        fetch('https://uno-spring-boot.onrender.com/api/cards')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
