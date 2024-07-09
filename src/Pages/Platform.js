@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import { Component, useContext } from 'react';
+import AuthContext from '../Context/AuthContext';
 
 export default class Platform extends Component{
     state = {
@@ -7,7 +8,8 @@ export default class Platform extends Component{
             gameCardColor = "",
             gameCardName = "",
             gameCardValue = Null
-        ]
+        ],
+        user : useContext(AuthContext)
     }
     
     render(){

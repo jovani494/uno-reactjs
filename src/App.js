@@ -3,6 +3,8 @@ import { Component } from 'react';
 
 import Accueil from "./Pages/Accueil";
 import AdminCard from "./Pages/AdminCard";
+import Login from './Pages/Login';
+import SignIn from './Pages/SignIn';
 
 import NavBar from "./Components/NavBar"
 
@@ -18,6 +20,8 @@ class App extends Component{
             <Routes>
               <Route path="/" element={<Accueil />} />
               <Route path="/admin-card" element={<AdminCard />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signin" element={<SignIn />} />
             </Routes>
           </main>
         </Router>

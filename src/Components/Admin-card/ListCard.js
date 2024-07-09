@@ -1,30 +1,8 @@
-import {Component} from 'react';
 import "./css/ListCard.css";
-
 import ItemCard from './ItemCard';
+import DeleteCard from "./DeleteCard";
 
-export default class ListCard extends Component{
-    state = {
-        cards : [], 
-        loading : true,
-        error : null
-    }
-
-    async componentDidMount() {
-        fetch('https://uno-spring-boot.onrender.com/api/cards')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => this.setState({ cards: data, loading: false }))
-            .catch(error => this.setState({ error, loading: false }));
-    }
-
-    render(){
-        const { cards, loading, error } = this.state;
-
+export default function ListCard({ cards, loading, error }) {
         if (loading) {
             return (
                 <div className="loading-bar">
@@ -41,11 +19,11 @@ export default class ListCard extends Component{
                 {
                     cards.map(card => (
                         <div key={card.id} className='cards'>
-                            <ItemCard color={card.color} name={card.name} value={card.value}/>
+                            <ItemCard color={card.color} name={card.name} value={card.value} id={card.id} />
+                            <DeleteCard cardId={cards.id} />
                         </div>
                     ))
                 }
             </div>
         )
-    }
 }
